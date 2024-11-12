@@ -1,0 +1,26 @@
+@url=http://localhost:3000
+@container=alpine
+
+### Container
+GET {{url}}/docker/containers/json
+Content-Type: application/json
+
+### Create
+POST {{url}}/docker/containers/create
+Content-Type: application/json
+
+{
+    "Image": "ubuntu:20.04"
+}
+
+### exec
+POST {{url}}/docker/containers/{{container}}/exec 
+Content-Type: application/json
+
+{
+    "Cmd": ["/bin/sh"],
+    "Tty": true,
+    "AttachStdin": true,
+    "AttachStdout": true,
+    "AttachStderr": true
+}
