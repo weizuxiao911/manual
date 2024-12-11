@@ -1,0 +1,1 @@
+npm init electron-app@latest electron-forge-app
